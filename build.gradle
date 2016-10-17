@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     compileOnly 'org.projectlombok:lombok:+'
+    compileOnly 'org.jetbrains:annotations:+'
     testCompile 'junit:junit:+'
 
     compile 'org.apache.spark:spark-core_2.11:+'

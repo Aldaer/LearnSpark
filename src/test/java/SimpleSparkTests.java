@@ -30,11 +30,11 @@ public class SimpleSparkTests {
     }
 
     @Test
-    public void createandProcessRDDFromCollection() {
+    public void sortWordsInRDDFromCollection() {
         final JavaRDD<String> hamletRDD = getSparkContext().parallelize(data);
         final List<String> words = hamletRDD.flatMap(s -> Arrays.asList(s.split(" ")).iterator())
                 .distinct()
-                .sortBy(String::length, true, 1)
+                .sortBy(SortableWord::new, true, 1)
                 .collect();
         words.forEach(System.out::println);
     }
